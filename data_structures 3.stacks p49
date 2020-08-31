@@ -1,0 +1,35 @@
+//3.stack; 3.2.3 line edit program; page 49 - 50
+  1 void input()
+  2 {
+  3     InitStack(&s);
+  4     ClearStack(&s);
+  5     ch = getchar();
+  6     while(ch != EOF)
+  7     {
+  8         while(ch != EOF && ch != '\n')
+  9         {
+ 10             if(ch == '#')
+ 11             {
+ 12                 if(!EmptyStack(s))
+ 13                 {
+ 14                     Pop(&s,&e);
+ 15                 }
+ 16             }
+ 17             else if(ch == '@')
+ 18             {
+ 19                 ClearStack(&s);
+ 20             }
+ 21             else
+ 22             {
+ 23                 Push(&s,ch);
+ 24             }
+ 25             ch = getchar();
+ 26         }
+ 27         sync();
+ 28         if(ch == EOF)
+ 29         {
+ 30             break;
+ 31         }
+ 32         ch = getchar();
+ 33     }
+ 34 }
